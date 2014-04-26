@@ -16,9 +16,9 @@ var menu_state = {
         this.pointer = this.game.input.pointer1;
 
         // Logo
-        var logo = this.game.add.text(w/2, -150, '测测肺活量', { font: '50px Arial', fill: '#fff' });
+        var logo = this.game.add.text(w/2, -180, '测测肺活量', { font: '50px Arial', fill: '#fff' });
         logo.anchor.setTo(0.5, 0.5);
-        this.game.add.tween(logo).to({ y: h/2-120 }, 1000, Phaser.Easing.Bounce.Out).start();
+        this.game.add.tween(logo).to({ y: h/2-160 }, 1000, Phaser.Easing.Bounce.Out).start();
 
         // Defining variables
         var style = { font: "25px Arial", fill: "#ffffff" };
