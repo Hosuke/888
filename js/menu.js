@@ -11,30 +11,27 @@ var menu_state = {
         // Call the 'start' function when pressing the spacebar
         this.cursor = this.game.input.keyboard.createCursorKeys();
         this.spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-        this.touch = this.game.touch;
-        //TODO : tap to start
-        //this.touch.onTap.add(this.start);
-
-        // Background
-        // TODO : Background
+        // tap to start
+        this.mousePointer = this.game.input.mousePointer;
+        this.pointer = this.game.input.pointer1;
 
         // Logo
-        var logo = this.game.add.text(w/2, -150, 'Game Title', { font: '50px Arial', fill: '#fff' });
+        var logo = this.game.add.text(w/2, -150, '测测肺活量', { font: '50px Arial', fill: '#fff' });
         logo.anchor.setTo(0.5, 0.5);
-        this.game.add.tween(logo).to({ y: h/2-80 }, 1000, Phaser.Easing.Bounce.Out).start();
+        this.game.add.tween(logo).to({ y: h/2-120 }, 1000, Phaser.Easing.Bounce.Out).start();
 
         // Defining variables
-        var style = { font: "30px Arial", fill: "#ffffff" };
+        var style = { font: "25px Arial", fill: "#ffffff" };
         var x = 160, y = 240;
 
         // Adding a text centered on the screen
-        var text = this.game.add.text(x, y-0, "Press space to start", style);
+        var text = this.game.add.text(x, y-0, "屏住呼吸同时按住屏幕来\n测试自己一次能憋气多久", style);
         text.anchor.setTo(0.5, 0.5);
 
         // If the user already played
         if (score > 0) {
             // Display its score
-            var score_label = this.game.add.text(x, y+50, "score: " + score, style);
+            var score_label = this.game.add.text(x, y+80, "憋气时间: " + score, style);
             score_label.anchor.setTo(0.5, 0.5);
         }
 
@@ -42,14 +39,17 @@ var menu_state = {
 
         if (highscore > 0) {
             //Display high score
-            var highscore_label = this.game.add.text (x, y+100, 'high score: '+ highscore, style);
+            var highscore_label = this.game.add.text (x, y+110, '最佳纪录: '+ highscore, style);
             highscore_label.anchor.setTo(0.5, 0.5)
         }
+
+        var footer = this.game.add.text(x,y+200, '© 2014 Hosuke', { font: "15px Arial", fill: "#ffffff" });
+        footer.anchor.setTo(0.5, 0.5);
 
     },
 
     update: function() {
-        if (this.spaceKey.isDown)
+        if (this.spaceKey.isDown || this.pointer.isDown || this.mousePointer.isDown)
             this.start();
     },
 
