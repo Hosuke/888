@@ -7,7 +7,7 @@ var play_state = {
 
     create: function() {
         score = 5;
-        var style = { font: "30px Arial", fill: "#ffffff" };
+        var style = { font: "20px Arial", fill: "#ffffff" };
         this.pressed = false;
         this.str8 = '8';
         this.counter = 1;
@@ -58,7 +58,7 @@ var play_state = {
             // TODO : add 8
             this.str8 += '8';
             this.counter += 1;
-            if (this.counter % 15 == 0)
+            if (this.counter % 24 == 0)
             {this.str8 += '\n';}
             this.text.setText(this.str8);
         }
@@ -68,7 +68,15 @@ var play_state = {
         this.endTime = Math.floor(this.game.time.time / 10) % 100000;
         score = (this.endTime - this.startTime)/100;
         this.game.time.events.remove(this.timer);
-        alert('您这次憋了'+score+'秒\n共生成了'+this.counter+'个8!');
+        var msg = '';
+        if (score>20) {msg = '不错！\n'}
+        if (score>30) {msg = '哎哟，不错喔！\n'}
+        if (score>40) {msg = '很屌嘛！\n'}
+        if (score>50) {msg = '你是不是练过？\n'}
+        if (score>60) {msg = '超人水平！！\n'}
+        if (score>300) {msg = '你确定你没有开挂？\n'}
+        if (score>1000) {msg = '=。=这是世界纪录啊！！！\n'}
+        alert(msg+'您这次憋了'+score+'秒\n共生成了'+this.counter+'个8!');
         this.game.state.start('menu');
     }
 
