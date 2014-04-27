@@ -25,13 +25,13 @@ var menu_state = {
         var x = 160, y = 240;
 
         // Adding a text centered on the screen
-        var text = this.game.add.text(x, y-0, "屏住呼吸同时按住屏幕来\n测试自己一次能憋气多久", style);
+        var text = this.game.add.text(x, y-30, "屏住呼吸同时按住屏幕来\n测试自己一次能憋气多久", style);
         text.anchor.setTo(0.5, 0.5);
 
         // If the user already played
         if (score > 0) {
             // Display its score
-            var score_label = this.game.add.text(x, y+80, "憋气时间: " + score, style);
+            var score_label = this.game.add.text(x, y+50, "憋气时间: " + score, style);
             score_label.anchor.setTo(0.5, 0.5);
         }
 
@@ -39,7 +39,7 @@ var menu_state = {
 
         if (highscore > 0) {
             //Display high score
-            var highscore_label = this.game.add.text (x, y+110, '最佳纪录: '+ highscore, style);
+            var highscore_label = this.game.add.text (x, y+80, '最佳纪录: '+ highscore, style);
             highscore_label.anchor.setTo(0.5, 0.5)
         }
 
