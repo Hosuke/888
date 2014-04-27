@@ -3,11 +3,10 @@
  */
 var play_state = {
 
-    // No more 'preload' function, since it is already done in the 'load' state
-
     create: function() {
         score = 0;
         document.getElementById('star').style.display = 'none';
+        document.getElementById('weibo').style.display = 'none';
         var style = { font: "20px Arial", fill: "#ffffff" };
         this.pressed = false;
         this.str8 = '8';
@@ -78,7 +77,15 @@ var play_state = {
         if (score>300) {msg = '你确定你没有开挂？\n'}
         if (score>1000) {msg = '=。=这是世界纪录啊！！！\n'}
         alert(msg+'您这次憋了'+score+'秒\n共生成了'+this.counter+'个8!');
+
+        if (score > highscore)
+        {
+            highscore = score;
+            // TODO : Change the default text of weibo share button
+            document.getElementById('weibo').default_text= "我憋了"+score+"秒，有个"+this.counter+"8！你能憋得比我更久吗？#测测肺活量# http://hosuke.github.io/888/";
+        }
         document.getElementById('star').style.display = 'block';
+        document.getElementById('weibo').style.display = 'block';
         this.game.state.start('menu');
     }
 

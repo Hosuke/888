@@ -35,7 +35,6 @@ var menu_state = {
             score_label.anchor.setTo(0.5, 0.5);
         }
 
-        if (score > highscore) {highscore = score;}
 
         if (highscore > 0) {
             //Display high score
