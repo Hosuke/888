@@ -3,7 +3,7 @@
  */
 var load_state = {
     preload: function() {
-        this.game.stage.backgroundColor = '#ff851b';
+        this.game.stage.backgroundColor = '#001f3f';
 
     },
 
